@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>65 Solar Cell & Hydrogen | นวัตกรรมพลังงานแห่งอนาคต ประจวบฯ ชุมพร เพชรบุรี</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepspace: '#050515',
+                        cyanglow: '#00F5D4',
+                        cobalt: '#0066FF',
+                        violet: '#7B2CBF',
+                        crystalwhite: '#F8F9FE',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Prompt', 'sans-serif'],
+                        display: ['Space Grotesk', 'Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Prompt', 'Plus Jakarta Sans', sans-serif;
+            background-color: #050515;
+            color: #F8F9FE;
+            overflow-x: hidden;
+        }
+        .font-display {
+            font-family: 'Prompt', 'Space Grotesk', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(5, 5, 21, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 245, 212, 0.15);
+        }
+        .glass-card {
+            background: rgba(12, 14, 38, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 245, 212, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 245, 212, 0.5);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(0, 245, 212, 0.25);
+        }
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #0c0e26;
+            border-radius: 9999px;
+            border: 1px solid rgba(0, 245, 212, 0.2);
+        }
+        input[type=range]::-webkit-slider-thumb {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #00F5D4, #0066FF);
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -8px;
+            box-shadow: 0 0 15px rgba(0, 245, 212, 0.8);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-[#F8F9FE] antialiased selection:bg-[#00F5D4] selection:text-[#050515]">
+
+    <!-- Floating Contact Widgets (Right Side) -->
+    <div class="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+        <a href="https://line.me" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-center w-12 h-12 rounded-full bg-[#06C755] text-white shadow-lg shadow-green-500/20 hover:scale-110 transition-all duration-300">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+            <span class="absolute right-14 bg-[#050515] text-[#F8F9FE] text-xs font-semibold px-3 py-1.5 rounded-lg border border-[#00F5D4]/30 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+                ติดต่อ LINE
+            </span>
+        </a>
+        <a href="tel:0826565416" class="group relative flex items-center justify-center w-12 h-12 rounded-full bg-[#0066FF] text-[#F8F9FE] shadow-lg shadow-[#0066FF]/40 hover:scale-110 transition-all duration-300 font-bold">
+            <i data-lucide="phone" class="w-5 h-5"></i>
+            <span class="absolute right-14 bg-[#050515] text-[#F8F9FE] text-xs font-semibold px-3 py-1.5 rounded-lg border border-[#00F5D4]/30 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+                082 656 5416
+            </span>
+        </a>
+    </div>
+
+    <!-- Ambient Glow Backgrounds -->
+    <div class="fixed top-0 left-1/4 w-[600px] h-[600px] bg-[#7B2CBF]/20 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+    <div class="fixed top-1/3 right-10 w-[500px] h-[500px] bg-[#00F5D4]/15 rounded-full blur-[180px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-10 left-10 w-[400px] h-[400px] bg-[#0066FF]/20 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-[#00F5D4]/15">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#0066FF] via-[#7B2CBF] to-[#00F5D4] p-[1px] flex items-center justify-center shadow-lg shadow-[#00F5D4]/20 group-hover:shadow-[#00F5D4]/40 transition-all duration-300">
+                    <div class="w-full h-full bg-[#050515] rounded-[11px] flex items-center justify-center">
+                        <i data-lucide="zap" class="w-5 h-5 text-[#00F5D4]"></i>
+                    </div>
+                </div>
+                <span class="text-xl font-extrabold tracking-wider font-display text-[#F8F9FE]">
+                    65<span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00F5D4] via-[#0066FF] to-[#7B2CBF]"> ENERGY TECH</span>
+                </span>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#about" class="hover:text-[#00F5D4] transition-colors">เกี่ยวกับเรา</a>
+                <a href="#solutions" class="hover:text-[#00F5D4] transition-colors">แพ็กเกจระบบ</a>
+                <a href="#calculator" class="hover:text-[#00F5D4] transition-colors">คำนวณการประหยัด</a>
+                <a href="#contact" class="hover:text-[#00F5D4] transition-colors">ติดต่อเรา</a>
+            </nav>
+
+            <div class="hidden md:flex items-center gap-4">
+                <a href="tel:0826565416" class="px-5 py-2.5 rounded-full text-sm font-medium text-slate-300 border border-[#0066FF]/40 hover:border-[#00F5D4]/60 transition-all flex items-center gap-2">
+                    <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> 082 656 5416
+                </a>
+                <a href="#solutions" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-[#0066FF] via-[#7B2CBF] to-[#00F5D4] text-[#F8F9FE] hover:shadow-[0_0_25px_rgba(0,245,212,0.4)] transition-all transform hover:-translate-y-0.5">
+                    ประเมินหน้างานฟรี
+                </a>
+            </div>
+
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-[#00F5D4] p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-[#00F5D4]/15 px-6 py-6 flex flex-col gap-4">
+            <a href="#about" class="mobile-link text-slate-200 hover:text-[#00F5D4] py-1 font-medium">เกี่ยวกับเรา</a>
+            <a href="#solutions" class="mobile-link text-slate-200 hover:text-[#00F5D4] py-1 font-medium">แพ็กเกจระบบ</a>
+            <a href="#calculator" class="mobile-link text-slate-200 hover:text-[#00F5D4] py-1 font-medium">คำนวณการประหยัด</a>
+            <a href="#contact" class="mobile-link text-slate-200 hover:text-[#00F5D4] py-1 font-medium">ติดต่อเรา</a>
+            <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+                <a href="tel:0826565416" class="w-full text-center py-2.5 rounded-xl border border-[#0066FF]/50 text-slate-200 font-medium flex items-center justify-center gap-2">
+                    <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> โทร 082 656 5416
+                </a>
+                <a href="#solutions" class="w-full text-center py-2.5 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#7B2CBF] text-[#F8F9FE] font-bold">ประเมินหน้างานฟรี</a>
+            </div>
+        </div>
+    </header>
+<!-- New Banner Section (1942x809 Aspect Ratio) -->
+    <section class="relative w-full overflow-hidden bg-[#050515]">
+        <div class="max-w-[1942px] mx-auto relative aspect-[1942/809] w-full">
+            <img src="images/bannerweb.webp" 
+                 alt="65 Energy Tech Banner" 
+                 class="w-full h-full object-cover object-center"
+                 loading="eager"
+                 width="1942" 
+                 height="809">
+            <!-- Overlay Gradient เพื่อความกลมกลืนกับธีม -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#050515]/20 via-transparent to-[#050515]/80 pointer-events-none"></div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="relative pt-16 pb-28 md:pt-24 md:pb-36 overflow-hidden">
+    <!-- Hero Section -->
+    <section class="relative pt-16 pb-28 md:pt-24 md:pb-36 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#050515]/80 border border-[#00F5D4]/40 text-[#00F5D4] text-xs font-semibold tracking-wide shadow-[0_0_15px_rgba(0,245,212,0.2)]">
+                        <i data-lucide="atom" class="w-4 h-4 text-[#00F5D4] animate-spin-slow"></i>
+                        <span>บริการ ออกแบบ ติดตั้ง และดูแลระบบโซล่าเซลล์ครบวงจร • ประจวบฯ • ชุมพร • เพชรบุรี</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-display leading-[1.15]">
+                        65 โซล่าเซลล์ <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00F5D4] via-[#0066FF] to-[#7B2CBF]">
+                            & บริการของเรา
+                        </span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-300 max-w-xl leading-relaxed">
+                        ผสานนวัตกรรมพลังงานไฮโดรเจนสะอาดและระบบ AI อัจฉริยะ ยกระดับประสิทธิภาพพลังงานแห่งอนาคตด้วยความเชี่ยวชาญกว่า 15 ปีในพื้นที่ภาคใต้ตอนบน
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="#calculator" class="px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-[#0066FF] via-[#7B2CBF] to-[#00F5D4] text-[#F8F9FE] shadow-lg hover:shadow-[0_0_30px_rgba(0,245,212,0.4)] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                            คำนวณการประหยัดพลังงาน <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="tel:0826565416" class="px-8 py-4 rounded-xl font-semibold bg-[#050515] border border-[#0066FF]/50 text-[#F8F9FE] hover:border-[#00F5D4] transition-all text-center flex items-center justify-center gap-2 shadow-inner">
+                            <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> ปรึกษาวิศวกรทันที
+                        </a>
+                    </div>
+
+                    <div class="pt-8 border-t border-slate-800/80 grid grid-cols-3 gap-6">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#00F5D4] font-display">15+ ปี</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">ประสบการณ์วิศวกรรม</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#F8F9FE] font-display">Hydrogen</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">นวัตกรรมพลังงานสะอาด</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-[#0066FF] font-display">AI Zero-Carbon</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">ระบบควบคุมอัจฉริยะ</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl p-1 bg-gradient-to-b from-[#00F5D4]/40 via-[#7B2CBF]/30 to-[#0066FF]/40 shadow-2xl backdrop-blur-xl">
+                        <div class="relative rounded-[22px] overflow-hidden bg-[#050515] aspect-[4/5] border border-[#00F5D4]/20">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="65 High-Tech Hydrogen Installation" 
+                                 class="w-full h-full object-cover opacity-70 hover:scale-105 transition-transform duration-700 mix-blend-luminosity">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#050515] via-[#050515]/30 to-transparent"></div>
+                            
+                            <div class="absolute bottom-6 left-6 right-6 p-5 rounded-2xl glass-panel border border-[#00F5D4]/30 shadow-2xl">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="relative flex h-2.5 w-2.5">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F5D4] opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#00F5D4]"></span>
+                                        </span>
+                                        <span class="text-xs font-semibold text-[#F8F9FE]">AI Energy Grid Live</span>
+                                    </div>
+                                    <span class="text-[11px] text-[#00F5D4] font-mono font-medium px-2 py-0.5 rounded bg-[#050515] border border-[#00F5D4]/40">H2 Hydro-Cell</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 pt-3 border-t border-slate-700/60">
+                                    <div>
+                                        <div class="text-[10px] text-slate-400 uppercase tracking-wider font-medium">ศูนย์ควบคุมสายด่วน</div>
+                                        <div class="text-lg font-bold text-[#00F5D4] font-display mt-0.5">082 656 5416</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-[10px] text-slate-400 uppercase tracking-wider font-medium">สถาบันวิจัยพลังงาน</div>
+                                        <div class="text-xs font-bold text-[#0066FF] mt-1">อ.เมือง จ.ประจวบฯ</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-[#050515]/80 border-t border-[#00F5D4]/15">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center space-y-4">
+                <span class="text-xs font-bold text-[#00F5D4] tracking-widest uppercase">นวัตกรรมแห่งอนาคต</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-[#F8F9FE]">ยินดีต้อนรับสู่ 65 Cyber & Hydrogen Tech</h2>
+                <p class="text-slate-300 text-base leading-relaxed">
+                    ยกระดับมาตรฐานพลังงานทดแทนในพื้นที่ **ประจวบคีรีขันธ์ ชุมพร และเพชรบุรี** 
+                    ด้วยเทคโนโลยีเซลล์เชื้อเพลิงไฮโดรเจน (Hydrogen Fuel Cell) ทำงานร่วมกับระบบโซลาร์เซลล์ AI ตอบโจทย์สถาบันวิจัย ภาคอุตสาหกรรม และอาคารอนาคตที่มุ่งสู่ Zero-Carbon
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive ROI Calculator -->
+    <section id="calculator" class="py-24 bg-[#050515]/60 border-y border-[#00F5D4]/15 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                <span class="text-xs font-bold text-[#00F5D4] tracking-widest uppercase">ระบบวิเคราะห์ AI ROI</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-[#F8F9FE]">คำนวณการประหยัดพลังงานไฮโดรเจน & AI</h2>
+                <p class="text-slate-400">ปรับระดับค่าไฟรายเดือนเพื่อประเมินผลตอบแทนและการลดคาร์บอนด้วยพลังงานสะอาดขั้นสูง</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    <div class="md:col-span-7 space-y-8">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <label for="bill-range" class="text-sm font-semibold text-slate-300">ค่าไฟฟ้าเฉลี่ยต่อเดือน</label>
+                                <span class="text-3xl font-extrabold text-[#00F5D4] font-display">฿<span id="bill-display">12,000</span></span>
+                            </div>
+                            <input id="bill-range" type="range" min="3000" max="100000" step="1000" value="12000">
+                            <div class="flex justify-between text-xs text-slate-500 font-medium mt-2">
+                                <span>฿3,000 / เดือน</span>
+                                <span>฿50,000 / เดือน</span>
+                                <span>฿100,000 / เดือน</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                                <div class="text-slate-400 text-xs font-medium mb-1">คาดการณ์ประหยัดใน 25 ปี</div>
+                                <div class="text-xl sm:text-2xl font-bold text-[#F8F9FE] font-display" id="25y-savings">฿3,060,000</div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                                <div class="text-slate-400 text-xs font-medium mb-1">ลดคาร์บอน / ปี</div>
+                                <div class="text-xl sm:text-2xl font-bold text-[#00F5D4] font-display" id="co2-offset">28.0 ตัน</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:col-span-5 bg-gradient-to-b from-[#050515] to-[#7B2CBF]/30 border border-[#00F5D4]/40 rounded-2xl p-6 sm:p-8 text-center space-y-4 shadow-xl">
+                        <span class="text-xs font-bold text-[#00F5D4] tracking-wider uppercase">คาดการณ์ประหยัดต่อปี</span>
+                        <div class="text-4xl font-extrabold text-[#F8F9FE] font-display" id="annual-savings">฿122,400</div>
+                        <p class="text-xs text-slate-300 leading-relaxed">
+                            บริหารจัดการอัตโนมัติด้วย AI ควบคุมการจัดเก็บพลังงานไฮโดรเจน
+                        </p>
+                        <a href="#solutions" class="inline-block w-full py-3.5 rounded-xl bg-gradient-to-r from-[#0066FF] to-[#00F5D4] text-[#050515] font-bold text-sm shadow-lg hover:shadow-[0_0_20px_rgba(0,245,212,0.5)] transition-all">
+                            ปรึกษาประเมินวิศวกรรมฟรี
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Solutions Catalog (8 Packages Updated) -->
+<section id="solutions" class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <span class="text-xs font-bold text-[#00F5D4] tracking-widest uppercase">คุณภาพระดับโลก มาตรฐานความปลอดภัยสูง</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-[#F8F9FE] mt-1">แพ็กเกจระบบพลังงานแสงอาทิตย์ (8 แพ็กเกจ)</h2>
+                <p class="text-slate-400 max-w-xl mt-2">อินเวอร์เตอร์ DEYE + แผง JINKO 725W + แบตเตอรี่ LVTOPSUN LiFePO4 คุณภาพดีที่สุด ปลอดภัย ใช้งานยาวนาน</p>
+            </div>
+
+            <!-- Category Filters -->
+            <div class="flex flex-wrap gap-2 p-1.5 bg-[#050515] rounded-xl border border-slate-800 self-start">
+                <button class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-gradient-to-r from-[#0066FF] to-[#00F5D4] text-[#050515]" data-filter="all">ทุกแพ็กเกจ (8)</button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-filter="1phase">ระบบ 1 Phase</button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-filter="3phase">ระบบ 3 Phase</button>
+            </div>
+        </div>
+
+        <!-- Cards Grid (8 Packages) -->
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Package 1 -->
+            <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative" data-category="1phase">
+                <div>
+                    <div class="text-xs font-bold text-[#00F5D4] tracking-wider uppercase mb-2">แพ็กเกจ 1 • ระบบ 1 Phase</div>
+                    <h3 class="text-2xl font-bold text-white font-display mb-4">DEYE 6kW + Jinko 8 แผง</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">รุ่นใหม่ คุณภาพระดับโลก มาตรฐานความปลอดภัยสูง ใช้งานยาวนาน</p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#00F5D4]"></i> Inverter
+                            </div>
+                            <div class="text-base font-bold text-white font-display">DEYE 6 kW (1 Phase)</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-[#0066FF]"></i> แบตเตอรี่
+                            </div>
+                            <div class="text-base font-bold text-white font-display">LVTOPSUN 16 kWh</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            Solar Panel JINKO 725W จำนวน 8 แผง (5.8 kWp)
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            แบตเตอรี่สำรองไฟ LVTOPSUN LiFePO4 ความจุ 16 kWh
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            ติดตั้งมาตรฐานวิศวกรรม ปลอดภัย ใช้งานได้ยาวนาน
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-6 border-t border-slate-800 space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">ราคาดีที่สุด</span>
+                            <span class="text-2xl font-extrabold text-white font-display">฿197,000</span>
+                        </div>
+                        <span class="text-[10px] text-[#00F5D4] font-semibold bg-[#050515] border border-[#00F5D4]/30 px-2.5 py-1 rounded-md">1 Phase</span>
+                    </div>
+                    <a href="tel:0826565416" class="w-full py-3.5 rounded-xl border border-[#0066FF]/50 bg-[#050515] hover:border-[#00F5D4] text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> นัดหมายประเมินหน้างาน
+                    </a>
+                </div>
+            </div>
+
+            <!-- Package 2 -->
+            <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative" data-category="1phase">
+                <div>
+                    <div class="text-xs font-bold text-[#00F5D4] tracking-wider uppercase mb-2">แพ็กเกจ 2 • ระบบ 1 Phase Dual Inverter</div>
+                    <h3 class="text-2xl font-bold text-white font-display mb-4">DEYE 6+6kW + Jinko 14 แผง</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">ขยายกำลังอินเวอร์เตอร์คู่ 6kW+6kW รองรับการใช้งานเครื่องใช้ไฟฟ้าพร้อมกันได้มากขึ้น</p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#00F5D4]"></i> Inverter
+                            </div>
+                            <div class="text-base font-bold text-white font-display">DEYE 6+6 kW (1 Phase)</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-[#0066FF]"></i> แบตเตอรี่
+                            </div>
+                            <div class="text-base font-bold text-white font-display">LVTOPSUN 16 kWh</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            Solar Panel JINKO 725W จำนวน 14 แผง (10.15 kWp)
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            แบตเตอรี่ LVTOPSUN LiFePO4 ความจุ 16 kWh
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            อินเวอร์เตอร์ DEYE แบบขนานระบบ (6kW + 6kW) เสถียรสูง
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-6 border-t border-slate-800 space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">ราคาดีที่สุด</span>
+                            <span class="text-2xl font-extrabold text-white font-display">฿255,000</span>
+                        </div>
+                        <span class="text-[10px] text-[#00F5D4] font-semibold bg-[#050515] border border-[#00F5D4]/30 px-2.5 py-1 rounded-md">1 Phase</span>
+                    </div>
+                    <a href="tel:0826565416" class="w-full py-3.5 rounded-xl border border-[#0066FF]/50 bg-[#050515] hover:border-[#00F5D4] text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> นัดหมายประเมินหน้างาน
+                    </a>
+                </div>
+            </div>
+
+            <!-- Package 3 -->
+            <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative ring-2 ring-[#00F5D4]" data-category="1phase">
+                <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#0066FF] via-[#7B2CBF] to-[#00F5D4] text-[#F8F9FE] text-[10px] font-extrabold uppercase tracking-widest shadow-lg">
+                    ยอดนิยม 1 Phase
+                </div>
+
+                <div>
+                    <div class="text-xs font-bold text-[#00F5D4] tracking-wider uppercase mb-2">แพ็กเกจ 3 • ระบบ 1 Phase High Capacity</div>
+                    <h3 class="text-2xl font-bold text-white font-display mb-4">DEYE 10kW + Jinko 14 แผง</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">อินเวอร์เตอร์ DEYE 10kW เดี่ยว จ่ายไฟแรง เสถียรภาพสูงสำหรับบ้านพักอาศัยขนาดใหญ่</p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#00F5D4]"></i> Inverter
+                            </div>
+                            <div class="text-base font-bold text-white font-display">DEYE 10 kW (1 Phase)</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-[#0066FF]"></i> แบตเตอรี่
+                            </div>
+                            <div class="text-base font-bold text-white font-display">LVTOPSUN 16 kWh</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            Solar Panel JINKO 725W จำนวน 14 แผง (10.15 kWp)
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            แบตเตอรี่ LVTOPSUN LiFePO4 ความจุ 16 kWh
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            ระบบลิเธียมฟอสเฟต ปลอดภัย ไม่ลามไฟ ใช้งานยาวนาน
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-6 border-t border-slate-800 space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">ราคาดีที่สุด</span>
+                            <span class="text-2xl font-extrabold text-white font-display">฿285,000</span>
+                        </div>
+                        <span class="text-[10px] text-[#00F5D4] font-semibold bg-[#050515] border border-[#00F5D4]/30 px-2.5 py-1 rounded-md">1 Phase</span>
+                    </div>
+                    <a href="tel:0826565416" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-[#0066FF] via-[#7B2CBF] to-[#00F5D4] text-[#F8F9FE] font-bold text-xs transition-all shadow-md hover:shadow-[0_0_20px_rgba(0,245,212,0.4)] flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4"></i> นัดหมายประเมินหน้างาน
+                    </a>
+                </div>
+            </div>
+
+            <!-- Package 4 -->
+            <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative" data-category="3phase">
+                <div>
+                    <div class="text-xs font-bold text-[#0066FF] tracking-wider uppercase mb-2">แพ็กเกจ 4 • ระบบ 3 Phase เริ่มต้น</div>
+                    <h3 class="text-2xl font-bold text-white font-display mb-4">DEYE 10kW + Jinko 14 แผง</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">สำหรับบ้านหรืออาคารที่ใช้ไฟ 3 เฟส บาลานซ์เฟสได้อย่างสมบูรณ์แบบ</p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#00F5D4]"></i> Inverter
+                            </div>
+                            <div class="text-base font-bold text-white font-display">DEYE 10 kW (3 Phase)</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-[#0066FF]"></i> แบตเตอรี่
+                            </div>
+                            <div class="text-base font-bold text-white font-display">LVTOPSUN 16 kWh</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            Solar Panel JINKO 725W จำนวน 14 แผง (10.15 kWp)
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            แบตเตอรี่ LVTOPSUN LiFePO4 ความจุ 16 kWh
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            อินเวอร์เตอร์ DEYE 3 Phase ช่วยกระจายกระแสไฟได้สมดุล
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-6 border-t border-slate-800 space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">ราคาดีที่สุด</span>
+                            <span class="text-2xl font-extrabold text-white font-display">฿295,000</span>
+                        </div>
+                        <span class="text-[10px] text-[#0066FF] font-semibold bg-[#050515] border border-[#0066FF]/30 px-2.5 py-1 rounded-md">3 Phase</span>
+                    </div>
+                    <a href="tel:0826565416" class="w-full py-3.5 rounded-xl border border-[#0066FF]/50 bg-[#050515] hover:border-[#00F5D4] text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> นัดหมายประเมินหน้างาน
+                    </a>
+                </div>
+            </div>
+
+            <!-- Package 5 -->
+            <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative" data-category="3phase">
+                <div>
+                    <div class="text-xs font-bold text-[#0066FF] tracking-wider uppercase mb-2">แพ็กเกจ 5 • ระบบ 3 Phase กลาง</div>
+                    <h3 class="text-2xl font-bold text-white font-display mb-4">DEYE 15kW + Jinko 14 แผง</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">อินเวอร์เตอร์ขนาดใหญ่ 15kW 3 เฟส รองรับการอัปเกรดแผงโซลาร์เซลล์เพิ่มในอนาคต</p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#00F5D4]"></i> Inverter
+                            </div>
+                            <div class="text-base font-bold text-white font-display">DEYE 15 kW (3 Phase)</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-[#0066FF]"></i> แบตเตอรี่
+                            </div>
+                            <div class="text-base font-bold text-white font-display">LVTOPSUN 16 kWh</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            Solar Panel JINKO 725W จำนวน 14 แผง (10.15 kWp)
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            แบตเตอรี่ LVTOPSUN LiFePO4 ความจุ 16 kWh
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            อินเวอร์เตอร์ DEYE 15kW จ่ายกำลังไฟสำรองต่อเนื่องสูง
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-6 border-t border-slate-800 space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">ราคาดีที่สุด</span>
+                            <span class="text-2xl font-extrabold text-white font-display">฿319,000</span>
+                        </div>
+                        <span class="text-[10px] text-[#0066FF] font-semibold bg-[#050515] border border-[#0066FF]/30 px-2.5 py-1 rounded-md">3 Phase</span>
+                    </div>
+                    <a href="tel:0826565416" class="w-full py-3.5 rounded-xl border border-[#0066FF]/50 bg-[#050515] hover:border-[#00F5D4] text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> นัดหมายประเมินหน้างาน
+                    </a>
+                </div>
+            </div>
+
+            <!-- Package 6 -->
+            <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative" data-category="3phase">
+                <div>
+                    <div class="text-xs font-bold text-[#0066FF] tracking-wider uppercase mb-2">แพ็กเกจ 6 • ระบบ 3 Phase ประสิทธิภาพสูง</div>
+                    <h3 class="text-2xl font-bold text-white font-display mb-4">DEYE 15kW + Jinko 24 แผง</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">เพิ่มความสามารถผลิตไฟด้วยแผง 24 แผง ผลิตไฟตอนกลางวันได้อย่างเต็มกำลัง 17.4 kWp</p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#00F5D4]"></i> Inverter
+                            </div>
+                            <div class="text-base font-bold text-white font-display">DEYE 15 kW (3 Phase)</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-[#0066FF]"></i> แบตเตอรี่
+                            </div>
+                            <div class="text-base font-bold text-white font-display">LVTOPSUN 16 kWh</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            Solar Panel JINKO 725W จำนวน 24 แผง (17.4 kWp)
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            แบตเตอรี่ LVTOPSUN LiFePO4 ความจุ 16 kWh
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            เหมาะกับธุรกิจ SME ร้านค้า โรงแรม และสำนักงาน
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-6 border-t border-slate-800 space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">ราคาดีที่สุด</span>
+                            <span class="text-2xl font-extrabold text-white font-display">฿360,000</span>
+                        </div>
+                        <span class="text-[10px] text-[#0066FF] font-semibold bg-[#050515] border border-[#0066FF]/30 px-2.5 py-1 rounded-md">3 Phase</span>
+                    </div>
+                    <a href="tel:0826565416" class="w-full py-3.5 rounded-xl border border-[#0066FF]/50 bg-[#050515] hover:border-[#00F5D4] text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> ขอใบเสนอราคาธุรกิจ
+                    </a>
+                </div>
+            </div>
+
+            <!-- Package 7 -->
+            <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative" data-category="1phase">
+                <div>
+                    <div class="text-xs font-bold text-[#7B2CBF] tracking-wider uppercase mb-2">แพ็กเกจ 7 • ระบบ 1 Phase สูงสุด</div>
+                    <h3 class="text-2xl font-bold text-white font-display mb-4">DEYE 16kW + Jinko 24 แผง</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">ระบบ 1 Phase กำลังสูงสุด 16kW ผลิตไฟแน่นด้วยแผง 24 แผง เหมาะกับคฤหาสน์ขนาดใหญ่</p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#00F5D4]"></i> Inverter
+                            </div>
+                            <div class="text-base font-bold text-white font-display">DEYE 16 kW (1 Phase)</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-[#0066FF]"></i> แบตเตอรี่
+                            </div>
+                            <div class="text-base font-bold text-white font-display">LVTOPSUN 16 kWh</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            Solar Panel JINKO 725W จำนวน 24 แผง (17.4 kWp)
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            แบตเตอรี่ LVTOPSUN LiFePO4 ความจุ 16 kWh
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            อินเวอร์เตอร์ DEYE 16kW 1 Phase ประสิทธิภาพระดับท็อป
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-6 border-t border-slate-800 space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">ราคาดีที่สุด</span>
+                            <span class="text-2xl font-extrabold text-white font-display">฿370,000</span>
+                        </div>
+                        <span class="text-[10px] text-[#7B2CBF] font-semibold bg-[#050515] border border-[#7B2CBF]/30 px-2.5 py-1 rounded-md">1 Phase Max</span>
+                    </div>
+                    <a href="tel:0826565416" class="w-full py-3.5 rounded-xl border border-[#0066FF]/50 bg-[#050515] hover:border-[#00F5D4] text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> นัดหมายประเมินหน้างาน
+                    </a>
+                </div>
+            </div>
+
+            <!-- Package 8 -->
+            <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative border border-[#7B2CBF]/60" data-category="3phase">
+                <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-[#7B2CBF] to-[#00F5D4] text-[#F8F9FE] text-[10px] font-extrabold uppercase tracking-widest shadow-lg">
+                    Flagship Heavy Duty
+                </div>
+
+                <div>
+                    <div class="text-xs font-bold text-[#7B2CBF] tracking-wider uppercase mb-2">แพ็กเกจ 8 • ระบบ 3 Phase ท็อปสุด</div>
+                    <h3 class="text-2xl font-bold text-white font-display mb-4">DEYE 16kW + Jinko 36 แผง + แบต 32 kWh</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-6">ชุดใหญ่ครบเซ็ตสำหรับโรงงาน อาคารพาณิชย์ หรือบ้านพักอาศัยที่ต้องการความเสถียรสูงสุด</p>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-[#050515]/90 border border-slate-800">
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="zap" class="w-3.5 h-3.5 text-[#00F5D4]"></i> Inverter
+                            </div>
+                            <div class="text-base font-bold text-white font-display">DEYE 16 kW (3 Phase)</div>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                <i data-lucide="battery-charging" class="w-3.5 h-3.5 text-[#0066FF]"></i> แบตเตอรี่
+                            </div>
+                            <div class="text-base font-bold text-white font-display">LVTOPSUN 32 kWh</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            Solar Panel JINKO 725W จำนวน 36 แผง (26.1 kWp)
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            แบตเตอรี่สองชุด LVTOPSUN LiFePO4 รวมความจุ 32 kWh
+                        </li>
+                        <li class="flex items-center gap-3 text-xs text-slate-300">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            กำลังผลิตและสำรองไฟสูง ปลอดภัย ใช้งานยาวนาน
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="pt-6 border-t border-slate-800 space-y-4">
+                    <div class="flex items-baseline justify-between">
+                        <div>
+                            <span class="text-xs text-slate-500 block">ราคาดีที่สุด</span>
+                            <span class="text-2xl font-extrabold text-[#00F5D4] font-display">฿570,000</span>
+                        </div>
+                        <span class="text-[10px] text-[#7B2CBF] font-semibold bg-[#050515] border border-[#7B2CBF]/40 px-2.5 py-1 rounded-md">3 Phase Max</span>
+                    </div>
+                    <a href="tel:0826565416" class="w-full py-3.5 rounded-xl border border-[#0066FF]/50 bg-[#050515] hover:border-[#00F5D4] text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                        <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4]"></i> ติดต่อทีมวิศวกรโครงการ
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-24 bg-[#050515]/60 border-t border-[#00F5D4]/15">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold text-[#00F5D4] tracking-widest uppercase">เหตุผลที่ต้องเลือกเรา</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold font-display tracking-tight text-[#F8F9FE] leading-tight">
+                        ผู้นำนวัตกรรมพลังงาน AI & ไฮโดรเจนแห่งภาคใต้ตอนบน
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+                        เราผสานความเชี่ยวชาญด้านวิศวกรรมก่อสร้างกว่า 15 ปี เข้ากับนวัตกรรมพลังงานอนาคต เพื่อส่งมอบโซลูชันไฮโดรเจนและพลังงานแสงอาทิตย์ที่มีความปลอดภัย แม่นยำ และคุ้มค่าสูงสุด
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex gap-4 p-4 rounded-2xl glass-card">
+                            <div class="p-3 rounded-xl bg-[#050515] border border-[#00F5D4]/30 text-[#00F5D4] h-fit">
+                                <i data-lucide="cpu" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">เทคโนโลยี AI Control & Hydrogen Fuel Cell</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">ระบบควบคุมพลังงานอัจฉริยะ ปรับการทำงานอัตโนมัติตามการใช้งานจริงเพื่อประสิทธิภาพสูงสุด</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 rounded-2xl glass-card">
+                            <div class="p-3 rounded-xl bg-[#050515] border border-[#0066FF]/30 text-[#0066FF] h-fit">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">วิศวกรรมมาตรฐานความปลอดภัยสูง</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">ติดตั้งโดยวิศวกรผู้เชี่ยวชาญเฉพาะทาง ดูแลใกล้ชิดในพื้นที่ ประจวบฯ ชุมพร และเพชรบุรี</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-6">
+                    <div class="relative rounded-3xl p-8 glass-card border-[#00F5D4]/20 shadow-2xl space-y-6">
+                        <div class="pb-4 border-b border-slate-800">
+                            <h3 class="font-bold text-white font-display text-xl mb-1">ขอบเขตบริการนวัตกรรมพลังงาน</h3>
+                            <p class="text-xs text-slate-400">ครบวงจรสำหรับสถาบันวิจัย ธุรกิจ และบ้านพักอาศัย</p>
+                        </div>
+
+                        <div class="space-y-4">
+                            <div class="p-4 rounded-2xl bg-[#050515]/90 border border-slate-800 flex items-center gap-3">
+                                <div class="p-2.5 rounded-lg bg-[#00F5D4]/10 text-[#00F5D4]">
+                                    <i data-lucide="search" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-white">วิเคราะห์ระบบและประเมินความเป็นไปได้ฟรี</div>
+                                    <div class="text-[10px] text-slate-400">ออกแบบจำลองการใช้พลังงานด้วยซอฟต์แวร์ AI</div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-[#050515]/90 border border-slate-800 flex items-center gap-3">
+                                <div class="p-2.5 rounded-lg bg-[#0066FF]/10 text-[#0066FF]">
+                                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-white">ดำเนินการเอกสารมาตรฐานพลังงานสะอาด</div>
+                                    <div class="text-[10px] text-slate-400">ขนานไฟและยื่นขอรับรองความปลอดภัยตามกฎหมาย</div>
+                                </div>
+                            </div>
+
+                            <div class="p-4 rounded-2xl bg-[#050515]/90 border border-slate-800 flex items-center gap-3">
+                                <div class="p-2.5 rounded-lg bg-[#7B2CBF]/10 text-[#7B2CBF]">
+                                    <i data-lucide="wrench" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-bold text-white">ติดตั้งและบำรุงรักษาระบบระยะยาว</div>
+                                    <div class="text-[10px] text-slate-400">ทีมวิศวกรดูแลและตรวจเช็กระบบเสถียรภาพสม่ำเสมอ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold text-[#00F5D4] tracking-widest uppercase">ผู้ใช้งานจริง</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-[#F8F9FE]">ความไว้วางใจจากลูกค้านวัตกรรม</h2>
+                <p class="text-slate-400">ความคิดเห็นจากศูนย์วิจัย เจ้าของบ้าน และสถานประกอบการชั้นนำ</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-3xl p-8 space-y-4">
+                    <div class="flex text-[#00F5D4] gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">
+                        "ระบบ AI Cyber Grid ทำงานได้อย่างแม่นยำมากครับ ช่วยให้บ้านประหยัดค่าไฟได้มหาศาล แถมงานติดตั้งเรียบร้อยได้มาตรฐานวิศวกรรม"
+                    </p>
+                    <div class="pt-4 border-t border-slate-800">
+                        <div class="text-xs font-bold text-white">คุณสมชาย</div>
+                        <div class="text-[10px] text-slate-500">เจ้าของสมาร์ทโฮม • อ.เมือง ประจวบคีรีขันธ์</div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 space-y-4">
+                    <div class="flex text-[#00F5D4] gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">
+                        "ทีมวิศวกรมีความเข้าใจเทคโนโลยีไฮโดรเจนเป็นอย่างดี ให้คำปรึกษาตรงไปตรงมา และมีทีมบริการหลังการขายในพื้นที่รวดเร็วมากครับ"
+                    </p>
+                    <div class="pt-4 border-t border-slate-800">
+                        <div class="text-xs font-bold text-white">ดร.วิภาวรรณ</div>
+                        <div class="text-[10px] text-slate-500">สถาบันวิจัยพลังงาน • จ.ชุมพร</div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 space-y-4">
+                    <div class="flex text-[#00F5D4] gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-[#00F5D4]"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">
+                        "ติดตั้งระบบลดค่าไฟฟ้าและระบบไฮบริดที่โรงงาน ผลตอบแทนคุ้มค่ามาก จัดการเอกสารและการไฟฟ้าให้เรียบร้อย มืออาชีพมากครับ"
+                    </p>
+                    <div class="pt-4 border-t border-slate-800">
+                        <div class="text-xs font-bold text-white">คุณณัฐพล</div>
+                        <div class="text-[10px] text-slate-500">สถานประกอบการอุตสาหกรรม • จ.เพชรบุรี</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact Info -->
+    <footer id="contact" class="border-t border-[#00F5D4]/15 bg-[#050515] pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
+                <div class="md:col-span-5 space-y-4">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#0066FF] via-[#7B2CBF] to-[#00F5D4] p-[1px] flex items-center justify-center">
+                            <div class="w-full h-full bg-[#050515] rounded-[11px] flex items-center justify-center">
+                                <i data-lucide="zap" class="w-5 h-5 text-[#00F5D4]"></i>
+                            </div>
+                        </div>
+                        <span class="text-xl font-extrabold tracking-wider font-display text-[#F8F9FE]">
+                            65<span class="text-transparent bg-clip-text bg-gradient-to-r from-[#00F5D4] via-[#0066FF] to-[#7B2CBF]"> ENERGY TECH</span>
+                        </span>
+                    </a>
+                    <p class="text-xs text-slate-400 leading-relaxed max-w-sm">
+                        ผู้นำนวัตกรรมพลังงานไฮโดรเจนและ AI พลังงานแสงอาทิตย์ บริการออกแบบและติดตั้งด้วยวิศวกรผู้เชี่ยวชาญ ครอบคลุมพื้นที่ ประจวบคีรีขันธ์ ชุมพร และเพชรบุรี
+                    </p>
+                </div>
+
+                <div class="md:col-span-7 space-y-4">
+                    <h4 class="font-bold text-white text-sm font-display">ข้อมูลการติดต่อ</h4>
+                    <div class="grid sm:grid-cols-2 gap-4 text-xs text-slate-300">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-[#00F5D4] shrink-0 mt-0.5"></i>
+                            <span>65/1 ถ.นารอง ตำบลประจวบ อำเภอเมืองประจวบ จ.ประจวบคีรีขันธ์ 77000</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            <a href="tel:0826565416" class="hover:text-[#00F5D4] transition-colors font-semibold">082 656 5416</a>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="clock" class="w-4 h-4 text-[#00F5D4] shrink-0"></i>
+                            <span>เปิดทำการ: จันทร์ - เสาร์ (08:00 - 17:00 น.)</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="shield-check" class="w-4 h-4 text-[#0066FF] shrink-0"></i>
+                            <span>วิศวกรผู้เชี่ยวชาญ ประสบการณ์ 15+ ปี</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-xs">
+                <div class="flex items-center gap-2">
+                    <span>© 2026 65 Energy Tech. สงวนลิขสิทธิ์ทั้งหมด</span>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#about" class="hover:text-slate-300 transition-colors">เกี่ยวกับเรา</a>
+                    <a href="#solutions" class="hover:text-slate-300 transition-colors">แพ็กเกจระบบ</a>
+                    <a href="#calculator" class="hover:text-slate-300 transition-colors">คำนวณการประหยัด</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Interactive ROI Calculator Logic
+        const billRange = document.getElementById('bill-range');
+        const billDisplay = document.getElementById('bill-display');
+        const annualSavingsDisplay = document.getElementById('annual-savings');
+        const savings25YDisplay = document.getElementById('25y-savings');
+        const co2OffsetDisplay = document.getElementById('co2-offset');
+
+        function updateSavings() {
+            const bill = parseInt(billRange.value, 10);
+            billDisplay.textContent = bill.toLocaleString();
+
+            const annualSavings = Math.round(bill * 12 * 0.85);
+            const savings25Y = annualSavings * 25;
+            const co2Offset = (bill * 0.00233).toFixed(1);
+
+            annualSavingsDisplay.textContent = '฿' + annualSavings.toLocaleString();
+            savings25YDisplay.textContent = '฿' + savings25Y.toLocaleString();
+            co2OffsetDisplay.textContent = co2Offset + ' ตัน';
+        }
+
+        billRange.addEventListener('input', updateSavings);
+
+        // Package Category Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const packageCards = document.querySelectorAll('.package-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-gradient-to-r', 'from-[#0066FF]', 'to-[#00F5D4]', 'text-[#050515]');
+                    b.classList.add('text-slate-400');
+                });
+                btn.classList.add('active', 'bg-gradient-to-r', 'from-[#0066FF]', 'to-[#00F5D4]', 'text-[#050515]');
+                btn.classList.remove('text-slate-400');
+
+                const filter = btn.getAttribute('data-filter');
+
+                packageCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
