@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KATACHI SOLAR | Intelligent Architectural Solar Energy</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#030712',
+                            card: '#0B132B',
+                            amber: '#F59E0B',
+                            orange: '#F97316',
+                            blue: '#3B82F6',
+                            indigo: '#1E3A8A',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+        .font-display {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .glow-amber {
+            box-shadow: 0 0 50px -10px rgba(245, 158, 11, 0.3);
+        }
+        .glow-blue {
+            box-shadow: 0 0 50px -10px rgba(59, 130, 246, 0.3);
+        }
+        .glass-panel {
+            background: rgba(11, 19, 43, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.15);
+        }
+        /* Custom Range Slider */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 8px;
+            cursor: pointer;
+            background: #1e293b;
+            border-radius: 9999px;
+            border: 1px solid #334155;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #F59E0B, #F97316);
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -8px;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen text-slate-100 antialiased selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- Floating Contact Widgets (Right Side) -->
+    <div class="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+        <!-- LINE Floating Button -->
+        <a href="https://line.me" target="_blank" rel="noopener noreferrer" class="group relative flex items-center justify-center w-12 h-12 rounded-full bg-[#06C755] text-white shadow-lg shadow-green-500/30 hover:scale-110 transition-all duration-300">
+            <i data-lucide="message-circle" class="w-6 h-6"></i>
+            <span class="absolute right-14 bg-slate-950 text-white text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-800 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+                ติดต่อ LINE
+            </span>
+        </a>
+        <!-- Phone Floating Button -->
+        <a href="tel:021234567" class="group relative flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 text-slate-950 shadow-lg shadow-orange-500/30 hover:scale-110 transition-all duration-300">
+            <i data-lucide="phone" class="w-5 h-5 font-bold"></i>
+            <span class="absolute right-14 bg-slate-950 text-white text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-800 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-xl">
+                โทรสายด่วน
+            </span>
+        </a>
+    </div>
+
+    <!-- Subtle Ambient Glow Backgrounds -->
+    <div class="fixed top-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[160px] pointer-events-none -z-10"></div>
+    <div class="fixed top-1/3 right-10 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[180px] pointer-events-none -z-10"></div>
+    <div class="fixed bottom-10 left-10 w-[400px] h-[400px] bg-orange-600/10 rounded-full blur-[150px] pointer-events-none -z-10"></div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-40 glass-panel border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-400 via-orange-500 to-blue-600 p-[1px] flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:shadow-orange-500/30 transition-all duration-300">
+                    <div class="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
+                        <i data-lucide="sun" class="w-5 h-5 text-amber-400"></i>
+                    </div>
+                </div>
+                <span class="text-xl font-extrabold tracking-wider font-display text-white">
+                    KATACHI<span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400">.SOLAR</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#solutions" class="hover:text-amber-400 transition-colors">Solutions</a>
+                <a href="#calculator" class="hover:text-amber-400 transition-colors">Savings Estimator</a>
+                <a href="#technology" class="hover:text-amber-400 transition-colors">Technology</a>
+                <a href="#testimonials" class="hover:text-amber-400 transition-colors">Case Studies</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#calculator" class="px-5 py-2.5 rounded-full text-sm font-medium text-slate-300 border border-slate-700 hover:border-slate-500 transition-all">
+                    Client Portal
+                </a>
+                <a href="#solutions" class="px-5 py-2.5 rounded-full text-sm font-semibold bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 text-slate-950 hover:shadow-[0_0_25px_rgba(245,158,11,0.4)] transition-all transform hover:-translate-y-0.5">
+                    Request Survey
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-white p-2">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-slate-800 px-6 py-6 flex flex-col gap-4">
+            <a href="#solutions" class="mobile-link text-slate-200 hover:text-amber-400 py-1 font-medium">Solutions</a>
+            <a href="#calculator" class="mobile-link text-slate-200 hover:text-amber-400 py-1 font-medium">Savings Estimator</a>
+            <a href="#technology" class="mobile-link text-slate-200 hover:text-amber-400 py-1 font-medium">Technology</a>
+            <a href="#testimonials" class="mobile-link text-slate-200 hover:text-amber-400 py-1 font-medium">Case Studies</a>
+            <div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+                <a href="#calculator" class="w-full text-center py-2.5 rounded-xl border border-slate-700 text-slate-200 font-medium">Client Portal</a>
+                <a href="#solutions" class="w-full text-center py-2.5 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 font-bold">Request Site Survey</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-16 pb-28 md:pt-24 md:pb-36 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 border border-amber-500/30 text-amber-400 text-xs font-semibold tracking-wide">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i>
+                        <span>NEXT-GEN ARCHITECTURAL SOLAR ARCHITECTURE</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-display leading-[1.1]">
+                        Power Your Future With <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-blue-400">
+                            Intelligent Solar
+                        </span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed">
+                        Seamlessly integrated solar roof tiles paired with Katachi Core™ AI storage. Engineered for eco-luxury residences demanding complete grid independence and zero-downtime reliability.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                        <a href="#calculator" class="px-8 py-4 rounded-xl font-bold bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 text-slate-950 shadow-lg hover:shadow-[0_0_30px_rgba(245,158,11,0.35)] transition-all flex items-center justify-center gap-2 transform hover:-translate-y-0.5">
+                            Calculate Savings <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                        <a href="#solutions" class="px-8 py-4 rounded-xl font-semibold bg-slate-900/90 border border-slate-800 text-slate-200 hover:bg-slate-800 hover:border-slate-700 transition-all text-center">
+                            Explore Packages
+                        </a>
+                    </div>
+
+                    <!-- Key Metrics -->
+                    <div class="pt-8 border-t border-slate-900/80 grid grid-cols-3 gap-6">
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">99.4%</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Grid Efficiency</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">25 Yrs</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Linear Warranty</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl sm:text-3xl font-extrabold text-white font-display">&lt;10ms</div>
+                            <div class="text-xs text-slate-400 uppercase tracking-wider mt-1">Grid Cutover</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Visual Card / Telemetry Widget -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none rounded-3xl p-1 bg-gradient-to-b from-blue-900/40 via-slate-800/30 to-amber-950/40 shadow-2xl backdrop-blur-xl">
+                        <div class="relative rounded-[22px] overflow-hidden bg-slate-950 aspect-[4/5] border border-slate-800/80">
+                            <!-- Eco Luxury Villa Image -->
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Katachi Smart Eco Luxury Residence" 
+                                 class="w-full h-full object-cover opacity-80 hover:scale-105 transition-transform duration-700">
+                            
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
+                            
+                            <!-- Floating Live Telemetry Badge -->
+                            <div class="absolute bottom-6 left-6 right-6 p-5 rounded-2xl glass-panel border border-slate-700/70 shadow-2xl">
+                                <div class="flex items-center justify-between mb-3">
+                                    <div class="flex items-center gap-2">
+                                        <span class="relative flex h-2.5 w-2.5">
+                                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+                                        </span>
+                                        <span class="text-xs font-semibold text-slate-200">Live AI Telemetry</span>
+                                    </div>
+                                    <span class="text-[11px] text-amber-400 font-mono font-medium px-2 py-0.5 rounded bg-amber-950/80 border border-amber-800/50">Core™ Active</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4 pt-3 border-t border-slate-800">
+                                    <div>
+                                        <div class="text-[10px] text-slate-400 uppercase tracking-wider font-medium">Generation Rate</div>
+                                        <div class="text-xl font-bold text-amber-400 font-display mt-0.5">9.8 kW</div>
+                                    </div>
+                                    <div>
+                                        <div class="text-[10px] text-slate-400 uppercase tracking-wider font-medium">Self-Consumption</div>
+                                        <div class="text-xl font-bold text-blue-400 font-display mt-0.5">96.4%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive ROI Calculator -->
+    <section id="calculator" class="py-24 bg-slate-900/40 border-y border-slate-800/80 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="max-w-3xl mx-auto text-center space-y-4 mb-16">
+                <span class="text-xs font-bold text-amber-400 tracking-widest uppercase">Dynamic Yield Estimator</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-white">Calculate Your Solar Savings</h2>
+                <p class="text-slate-400">Slide to match your current electricity spending and preview 25-year financial performance.</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto glass-card rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+                <div class="grid md:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Slider Controls -->
+                    <div class="md:col-span-7 space-y-8">
+                        <div>
+                            <div class="flex justify-between items-center mb-4">
+                                <label for="bill-range" class="text-sm font-semibold text-slate-300">Monthly Utility Bill</label>
+                                <span class="text-3xl font-extrabold text-amber-400 font-display">$<span id="bill-display">350</span></span>
+                            </div>
+                            <input id="bill-range" type="range" min="100" max="1500" step="25" value="350">
+                            <div class="flex justify-between text-xs text-slate-500 font-medium mt-2">
+                                <span>$100 / mo</span>
+                                <span>$800 / mo</span>
+                                <span>$1,500 / mo</span>
+                            </div>
+                        </div>
+
+                        <!-- Mini stats breakdown -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800">
+                                <div class="text-slate-400 text-xs font-medium mb-1">Est. 25-Year Savings</div>
+                                <div class="text-xl sm:text-2xl font-bold text-white font-display" id="25y-savings">$89,250</div>
+                            </div>
+                            <div class="p-4 rounded-2xl bg-slate-950/70 border border-slate-800">
+                                <div class="text-slate-400 text-xs font-medium mb-1">CO2 Offset / Year</div>
+                                <div class="text-xl sm:text-2xl font-bold text-blue-400 font-display" id="co2-offset">28.0 Tons</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projected Card Display -->
+                    <div class="md:col-span-5 bg-gradient-to-b from-amber-950/30 via-slate-950 to-slate-950 border border-amber-500/30 rounded-2xl p-6 sm:p-8 text-center space-y-4 shadow-xl">
+                        <span class="text-xs font-bold text-amber-400 tracking-wider uppercase">Projected Annual Savings</span>
+                        <div class="text-4xl font-extrabold text-white font-display" id="annual-savings">$3,570</div>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Includes Katachi Core™ dynamic peak-shaving optimization and grid feed tariffs.
+                        </p>
+                        <a href="#solutions" class="inline-block w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 font-bold text-sm shadow-lg hover:shadow-[0_0_20px_rgba(245,158,11,0.4)] transition-all">
+                            Get Custom System Design
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Product Solutions Catalog -->
+    <section id="solutions" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-bold text-amber-400 tracking-widest uppercase">System Catalog</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-display tracking-tight text-white mt-1">Curated Solar Tiers</h2>
+                    <p class="text-slate-400 max-w-xl mt-2">Precision engineered systems configured for off-grid luxury, grid-tied efficiency, and commercial installations.</p>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex gap-2 p-1.5 bg-slate-900 rounded-xl border border-slate-800 self-start">
+                    <button class="filter-btn active px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950" data-filter="all">All Packages</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-filter="residential">Residential</button>
+                    <button class="filter-btn px-4 py-2 rounded-lg text-xs font-semibold text-slate-400 hover:text-white transition-all" data-filter="commercial">Commercial</button>
+                </div>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Package 1 -->
+                <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative" data-category="residential">
+                    <div>
+                        <div class="text-xs font-bold text-blue-400 tracking-wider uppercase mb-2">Residential On-Grid</div>
+                        <h3 class="text-2xl font-bold text-white font-display mb-4">Aura Essential</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">Designed for suburban modern homes requiring sleek architectural integration and high daylight efficiency.</p>
+
+                        <!-- Specs Pill Grid -->
+                        <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80">
+                            <div>
+                                <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                    <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> Peak Power
+                                </div>
+                                <div class="text-lg font-bold text-white font-display">6.4 kWp</div>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                    <i data-lucide="battery" class="w-3.5 h-3.5 text-blue-400"></i> Battery
+                                </div>
+                                <div class="text-lg font-bold text-white font-display">10.0 kWh</div>
+                            </div>
+                        </div>
+
+                        <!-- Feature Checklist -->
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Bi-facial Glass-Glass Modules
+                            </li>
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Smart Microinverters (99.2% eff)
+                            </li>
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Mobile App Real-Time Telemetry
+                            </li>
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Grid Auto-Switch & Surge Defense
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-800/80 space-y-4">
+                        <div class="flex items-baseline justify-between">
+                            <div>
+                                <span class="text-xs text-slate-500 block">Complete Installation</span>
+                                <span class="text-2xl font-extrabold text-white font-display">$9,800</span>
+                            </div>
+                            <span class="text-[10px] text-amber-400 font-semibold bg-amber-950/60 border border-amber-800/60 px-2.5 py-1 rounded-md">25-Yr Warranty</span>
+                        </div>
+                        <button class="w-full py-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 hover:border-amber-500/50 text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                            Request Site Survey
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 2 (Most Popular) -->
+                <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative ring-2 ring-amber-500/50" data-category="residential">
+                    <div class="absolute -top-3.5 right-6 px-3.5 py-1 rounded-full bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[10px] font-extrabold uppercase tracking-widest shadow-lg">
+                        Most Popular
+                    </div>
+
+                    <div>
+                        <div class="text-xs font-bold text-amber-400 tracking-wider uppercase mb-2">Residential Hybrid Autonomy</div>
+                        <h3 class="text-2xl font-bold text-white font-display mb-4">Aura Matrix Pro</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">Complete energy self-sufficiency for 4-5 bedroom luxury estates with integrated high-capacity battery storage.</p>
+
+                        <!-- Specs Pill Grid -->
+                        <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80">
+                            <div>
+                                <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                    <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> Peak Power
+                                </div>
+                                <div class="text-lg font-bold text-white font-display">12.8 kWp</div>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                    <i data-lucide="battery" class="w-3.5 h-3.5 text-blue-400"></i> Battery
+                                </div>
+                                <div class="text-lg font-bold text-white font-display">24.0 kWh</div>
+                            </div>
+                        </div>
+
+                        <!-- Feature Checklist -->
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Katachi Core™ AI Peak Shaving
+                            </li>
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Dual LFP Battery Powerwall Units
+                            </li>
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Sub-10ms Zero-Downtime Failover
+                            </li>
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Level 2 Integrated EV Fast Charging
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-800/80 space-y-4">
+                        <div class="flex items-baseline justify-between">
+                            <div>
+                                <span class="text-xs text-slate-500 block">Complete Installation</span>
+                                <span class="text-2xl font-extrabold text-white font-display">$18,400</span>
+                            </div>
+                            <span class="text-[10px] text-amber-400 font-semibold bg-amber-950/60 border border-amber-800/60 px-2.5 py-1 rounded-md">25-Yr Performance</span>
+                        </div>
+                        <button class="w-full py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 font-bold text-xs transition-all shadow-md hover:shadow-[0_0_20px_rgba(245,158,11,0.3)]">
+                            Request Site Survey
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card glass-card rounded-3xl p-8 flex flex-col justify-between relative" data-category="commercial">
+                    <div>
+                        <div class="text-xs font-bold text-blue-400 tracking-wider uppercase mb-2">Commercial Hybrid</div>
+                        <h3 class="text-2xl font-bold text-white font-display mb-4">Titan Grid Enterprise</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed mb-6">Designed for corporate headquarters, industrial manufacturing, and resort developments requiring high peak loads.</p>
+
+                        <!-- Specs Pill Grid -->
+                        <div class="grid grid-cols-2 gap-3 mb-6 p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80">
+                            <div>
+                                <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                    <i data-lucide="zap" class="w-3.5 h-3.5 text-amber-400"></i> Peak Power
+                                </div>
+                                <div class="text-lg font-bold text-white font-display">60.0 kWp</div>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-1.5 text-slate-400 text-xs mb-1">
+                                    <i data-lucide="battery" class="w-3.5 h-3.5 text-blue-400"></i> Battery
+                                </div>
+                                <div class="text-lg font-bold text-white font-display">96.0 kWh</div>
+                            </div>
+                        </div>
+
+                        <!-- Feature Checklist -->
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Multi-Inverter Commercial Rack System
+                            </li>
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Enterprise Telemetry & Carbon Credits API
+                            </li>
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                Active Liquid-Cooled LFP Battery Racks
+                            </li>
+                            <li class="flex items-center gap-3 text-xs text-slate-300">
+                                <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 shrink-0"></i>
+                                24/7 Priority SLA Engineering Support
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-800/80 space-y-4">
+                        <div class="flex items-baseline justify-between">
+                            <div>
+                                <span class="text-xs text-slate-500 block">Custom Turnkey</span>
+                                <span class="text-2xl font-extrabold text-white font-display">$72,000</span>
+                            </div>
+                            <span class="text-[10px] text-amber-400 font-semibold bg-amber-950/60 border border-amber-800/60 px-2.5 py-1 rounded-md">Enterprise SLA</span>
+                        </div>
+                        <button class="w-full py-3.5 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 hover:border-amber-500/50 text-slate-200 font-semibold text-xs transition-all flex items-center justify-center gap-2">
+                            Request Commercial Feasibility
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Engineering & Technology Stack -->
+    <section id="technology" class="py-24 bg-slate-900/40 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="text-xs font-bold text-amber-400 tracking-widest uppercase">Katachi Engineering Core™</span>
+                    <h2 class="text-3xl sm:text-5xl font-extrabold font-display tracking-tight text-white leading-tight">
+                        Precision Hardware Meets Edge Intelligence.
+                    </h2>
+                    <p class="text-slate-400 leading-relaxed text-sm sm:text-base">
+                        Our solar tile modules utilize multi-busbar PERC cell architecture paired with anti-reflective nanocoating, capturing 18% more low-angle sunlight during sunrise and dusk.
+                    </p>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex gap-4 p-4 rounded-2xl glass-card">
+                            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-amber-400 h-fit">
+                                <i data-lucide="cpu" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Edge Neural Processing</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">Predicts micro-climate weather patterns to optimize battery charging before storm fronts or rate hikes occur.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-4 p-4 rounded-2xl glass-card">
+                            <div class="p-3 rounded-xl bg-slate-950 border border-slate-800 text-blue-400 h-fit">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm mb-1">Thermally Isolated LFP Safety</h4>
+                                <p class="text-xs text-slate-400 leading-relaxed">Lithium Iron Phosphate chemistry with zero cobalt risk and individual cell thermal cutoff protection.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Tech Breakdown Card -->
+                <div class="lg:col-span-6">
+                    <div class="relative rounded-3xl p-8 glass-card border-slate-800 shadow-2xl">
+                        <div class="flex items-center justify-between pb-6 border-b border-slate-800 mb-6">
+                            <div>
+                                <h3 class="font-bold text-white font-display">System Topology Dashboard</h3>
+                                <p class="text-xs text-slate-400">Active Load & Arbitrage Route</p>
+                            </div>
+                            <i data-lucide="bar-chart-3" class="w-5 h-5 text-amber-400"></i>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Flow item 1 -->
+                            <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400">
+                                        <i data-lucide="sun" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Bifacial Roof Matrix</div>
+                                        <div class="text-[10px] text-slate-400">Irradiance: 980 W/m²</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-amber-400">+8.4 kW</span>
+                            </div>
+
+                            <!-- Flow item 2 -->
+                            <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 rounded-lg bg-blue-500/10 text-blue-400">
+                                        <i data-lucide="battery-charging" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Katachi Reserve Storage</div>
+                                        <div class="text-[10px] text-slate-400">SOC: 94% (Charging)</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-blue-400">3.2 kW In</span>
+                            </div>
+
+                            <!-- Flow item 3 -->
+                            <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="p-2 rounded-lg bg-orange-500/10 text-orange-400">
+                                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-xs font-bold text-white">Grid Net Metering</div>
+                                        <div class="text-[10px] text-slate-400">Peak Feed Tariff Active</div>
+                                    </div>
+                                </div>
+                                <span class="text-xs font-mono font-bold text-amber-400">+$0.22 / kWh</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+                <span class="text-xs font-bold text-amber-400 tracking-widest uppercase">Verified Deployments</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">Trusted by Visionary Owners</h2>
+                <p class="text-slate-400">See how modern estates leverage Katachi Solar for performance and architectural elegance.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card rounded-3xl p-8 space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">
+                        "The seamless solar tile design preserved the modern minimalist architecture of our villa while reducing our utility bill by 92%. Incredible engineering."
+                    </p>
+                    <div class="pt-4 border-t border-slate-800">
+                        <div class="text-xs font-bold text-white">Marcus Vance</div>
+                        <div class="text-[10px] text-slate-500">Aspen Modern Residence • 18.2 kW System</div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">
+                        "During the winter grid outages, our Katachi system transitioned in milliseconds. We didn't even notice the neighborhood power went down."
+                    </p>
+                    <div class="pt-4 border-t border-slate-800">
+                        <div class="text-xs font-bold text-white">Elena Rostova</div>
+                        <div class="text-[10px] text-slate-500">Malibu Coastal Villa • Aura Matrix Pro</div>
+                    </div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-8 space-y-4">
+                    <div class="flex text-amber-400 gap-1">
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                    </div>
+                    <p class="text-xs text-slate-300 leading-relaxed italic">
+                        "The enterprise AI dashboard lets us monitor power consumption across all 3 of our regional offices. Exceptional ROI performance."
+                    </p>
+                    <div class="pt-4 border-t border-slate-800">
+                        <div class="text-xs font-bold text-white">David K. Chen</div>
+                        <div class="text-[10px] text-slate-500">VP Operations, Apex Design HQ</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-900 bg-slate-950 py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6 text-slate-500 text-xs">
+            <div class="flex items-center gap-2">
+                <i data-lucide="sun" class="w-4 h-4 text-amber-400"></i>
+                <span class="font-bold text-white tracking-wider font-display">KATACHI SOLAR</span>
+                <span>© 2026 Katachi Technologies Inc. All Rights Reserved.</span>
+            </div>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-slate-300 transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">Terms of Service</a>
+                <a href="#" class="hover:text-slate-300 transition-colors">Engineering Portal</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Interactive ROI Calculator Logic
+        const billRange = document.getElementById('bill-range');
+        const billDisplay = document.getElementById('bill-display');
+        const annualSavingsDisplay = document.getElementById('annual-savings');
+        const savings25YDisplay = document.getElementById('25y-savings');
+        const co2OffsetDisplay = document.getElementById('co2-offset');
+
+        function updateSavings() {
+            const bill = parseInt(billRange.value, 10);
+            billDisplay.textContent = bill.toLocaleString();
+
+            const annualSavings = Math.round(bill * 12 * 0.85);
+            const savings25Y = annualSavings * 25;
+            const co2Offset = (bill * 0.08).toFixed(1);
+
+            annualSavingsDisplay.textContent = '$' + annualSavings.toLocaleString();
+            savings25YDisplay.textContent = '$' + savings25Y.toLocaleString();
+            co2OffsetDisplay.textContent = co2Offset + ' Tons';
+        }
+
+        billRange.addEventListener('input', updateSavings);
+
+        // Package Category Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const packageCards = document.querySelectorAll('.package-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-gradient-to-r', 'from-amber-400', 'to-orange-500', 'text-slate-950');
+                    b.classList.add('text-slate-400');
+                });
+                btn.classList.add('active', 'bg-gradient-to-r', 'from-amber-400', 'to-orange-500', 'text-slate-950');
+                btn.classList.remove('text-slate-400');
+
+                const filter = btn.getAttribute('data-filter');
+
+                packageCards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
